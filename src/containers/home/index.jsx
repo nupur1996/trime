@@ -60,7 +60,7 @@ class Home extends Component {
           <Row>
                   <Col span={16} style={{paddingRight:"1%"}}>
                           {this.state.meetingData.map((meetData,key)=>(
-                        <MeetingCard time={meetData.time} assigned={meetData.assigned_to} title={meetData.purpose} date={meetData.date} purpose={meetData.meeting_title}/>
+                        <MeetingCard role={meetData.role} time={meetData.time} assigned={meetData.assigned_to} title={meetData.purpose} date={meetData.date} purpose={meetData.meeting_title}/>
                       ))}
                   </Col>
                   <Col span={8} style={{textAlign:"right"}}>

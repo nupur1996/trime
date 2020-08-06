@@ -18,7 +18,7 @@ class MeetingCard extends Component {
                       <div><img style={{height:"3.5rem",width:"3.5rem"}} src={user}/></div>
                       <div>
                             <div>{this.props.assigned}</div>
-                            <div style={{fontSize:"0.8rem",color:"#E0E0E0"}}>Consultant</div>
+                            <div style={{fontSize:"0.8rem",color:"#E0E0E0"}}>{this.props.role}</div>
                       </div>
                   </Col>
                   <Col span={20}>
