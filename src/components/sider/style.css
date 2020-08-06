@@ -1,0 +1,9 @@
+.main div:hover{
+ background-color: rgba(24, 143, 255, 0.1) !important;
+ border-radius: 50px;
+ color:black !important;
+}
+
+.main div{
+  padding:0% 8%;
+}

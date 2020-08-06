@@ -1,0 +1,31 @@
+[{
+  "meeting_title":"Daily Scrum Meeting",
+  "purposr":"Follow ups",
+  "assigned_to":"Mathew Perry",
+  "date":"24/08/2020",
+  "role":"Product manger",
+  "time":"10:00 AM"
+},
+{
+  "meeting_title":"Daily Scrum Meeting",
+  "purposr":"Not yet decided",
+  "assigned_to":"Matt le blanc",
+  "date":"24/08/2020",
+  "role":"Consultant",
+  "time":"12:00 Noon"},
+{
+  "meeting_title":"Daily Scrum Meeting",
+  "purposr":"Product discussions",
+  "assigned_to":"Jennifer Aniston",
+  "date":"24/08/2020",
+  "role":"Product manger",
+  "time":"2:00 PM"
+},
+{
+  "meeting_title":"Daily Scrum Meeting",
+  "purposr":"Follow ups",
+  "assigned_to":"Courtney Cox",
+  "date":"24/08/2020",
+  "role":"Design Lead",
+  "time":"4:00 pM"
+}]
