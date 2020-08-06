@@ -8,6 +8,7 @@ import MeetingCard from '../../components/meetingcard';
 import MenuItem from '../../components/menuitem';
 import Sider from '../../components/sider';
 import cal from '../assets/cal.png'
+import data from '../../data'
 import logo from '../assets/logo.png'
 import logout from '../assets/logout.png'
 import user from '../assets/user.png'
@@ -15,18 +16,31 @@ import user from '../assets/user.png'
 const { Search } = Input;
 
 class Home extends Component {
-  state = {
-    meetingData:[]
-  };
+  constructor(props){
+    super(props)
+    this.state = {
+      meetingData:[],
+      search:''
+    };
+  }
+ 
 
   componentDidMount=()=>{
-    fetch('https://f661aeec-ce10-4340-a688-9eb3a82cd9a0.mock.pstmn.io/srcum')
+    fetch(data)
     .then((res)=>res.json())
     .then((res)=>this.setState({meetingData:res}))
   }
 
+  handleChange=(e)=>{
+      this.setState({
+        search : e.target.value
+      });
+  }
+
   render() {
-    console.log(this.state.meetingData)
+    var meet = this.state.meetingData.filter((meet)=>{
+      return meet.assigned_to.toLowerCase().includes(this.state.search.toLowerCase())
+    })
     return (
       <div>
         <PageHeader className="header" 
@@ -45,22 +59,18 @@ class Home extends Component {
                      <Switch checkedChildren="Upcoming task" unCheckedChildren="Completed" defaultChecked />
                 </Col>
                 <Col span={12} style={{textAlign:"right"}}>
-                    <Search
-                      placeholder="input search text"
-                      onSearch={value => console.log(value)}
-                      style={{ width: 300 }}
-                    />
+                    <Input placeholder="search meeting head" onChange={this.handleChange}/>
+                    <div style={{fontSize:"0.5rem",color:"red"}}>**you can search the names of meeting head.. e.g. matt</div>
                 </Col>
               </Row>
               <Row style={{marginBottom:"10px"}}>
                   <img src={cal}/>
                  <span style={{fontSize:"0.6rem",color:"red",textAlign:"left",lineHeight:"1rem",marginTop:"8px"}}>July 2020<div style={{fontSize:"1.2rem",color:"black"}}>Today's Task</div></span> 
-              </Row>
-              
-          <Row>
+              </Row> 
+              <Row>
                   <Col span={16} style={{paddingRight:"1%"}}>
-                          {this.state.meetingData.map((meetData,key)=>(
-                        <MeetingCard role={meetData.role} time={meetData.time} assigned={meetData.assigned_to} title={meetData.purpose} date={meetData.date} purpose={meetData.meeting_title}/>
+                          {meet.map((meetData,key)=>(
+                        <MeetingCard  role={meetData.role} time={meetData.time} assigned={meetData.assigned_to} title={meetData.purpose} date={meetData.date} purpose={meetData.meeting_title}/>
                       ))}
                   </Col>
                   <Col span={8} style={{textAlign:"right"}}>
